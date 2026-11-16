@@ -1,0 +1,21 @@
+test=cpu_benchmark_v1
++ date -u +%FT%TZ
+2026-11-16T11:58:27Z
++ hostname
+vm209
++ git -C engines/llama.cpp-prism rev-parse HEAD
+6447906bf96c1a023980d3453fb59daa6af3bb23
++ sha256sum engines/llama.cpp-prism/build-cpu/bin/llama-bench models/Ternary-Bonsai-1.7B-PQ2_0.gguf
+e4d1981273d193e0fcfcca77c516e954ab7d14e4444af779636de21bbff8c0cd  engines/llama.cpp-prism/build-cpu/bin/llama-bench
+de68ba48a8dacb21979915991e7741b917869d71410a370df951c0c3a237ae50  models/Ternary-Bonsai-1.7B-PQ2_0.gguf
++ run_status=0
++ ./engines/llama.cpp-prism/build-cpu/bin/llama-bench -m models/Ternary-Bonsai-1.7B-PQ2_0.gguf -ngl 0 -t 4 -p 128 -n 128 -r 3 -b 2048 -ub 512 -ctk f16 -ctv f16 -fa auto -o json -oe md
+| model                          |       size |     params | backend    | threads |            test |                  t/s |
+| ------------------------------ | ---------: | ---------: | ---------- | ------: | --------------: | -------------------: |
+| qwen3 1.7B PQ2_0 - 2.13 bpw (group 128) | 436.16 MiB |     1.72 B | CPU        |       4 |           pp128 |        153.76 ± 0.16 |
+| qwen3 1.7B PQ2_0 - 2.13 bpw (group 128) | 436.16 MiB |     1.72 B | CPU        |       4 |           tg128 |         50.84 ± 0.27 |
+
+build: 6447906bf (12136)
++ set +x
+
+benchmark_exit_status=0

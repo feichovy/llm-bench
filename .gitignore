@@ -1,0 +1,28 @@
+
+# Models and external inference engines
+/models/
+/engines/
+*.gguf
+*.safetensors
+*.bin
+
+# Build output
+build/
+build-*/
+CMakeFiles/
+CMakeCache.txt
+compile_commands.json
+*.o
+*.a
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.DS_Store

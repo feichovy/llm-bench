@@ -1,0 +1,53 @@
+test=cpu_dns_check_v1
++ date -u +%FT%TZ
+2026-11-16T11:55:30Z
++ hostname
+vm209
++ git -C engines/llama.cpp-prism rev-parse HEAD
+6447906bf96c1a023980d3453fb59daa6af3bb23
++ ./engines/llama.cpp-prism/build-cpu/bin/llama-cli --version
+version: 0.7.0-dev (build 12136, commit 6447906bf)
+built with GNU 11.4.0 for Linux x86_64
++ sha256sum models/Ternary-Bonsai-1.7B-PQ2_0.gguf
+de68ba48a8dacb21979915991e7741b917869d71410a370df951c0c3a237ae50  models/Ternary-Bonsai-1.7B-PQ2_0.gguf
++ run_status=0
++ ./engines/llama.cpp-prism/build-cpu/bin/llama-cli -m models/Ternary-Bonsai-1.7B-PQ2_0.gguf -ngl 0 -t 4 -tb 4 -c 2048 -n 512 --seed 42 -p '请用一句话解释 DNS 的作用。' --single-turn --simple-io --color off --show-timings
+warning: no usable GPU found, --gpu-layers option will be ignored
+warning: one possible reason is that llama.cpp was compiled without GPU support
+warning: consult docs/build.md for compilation instructions
+
+
+Loading model... 
+
+▄▄ ▄▄
+██ ██
+██ ██  ▀▀█▄ ███▄███▄  ▀▀█▄    ▄████ ████▄ ████▄
+██ ██ ▄█▀██ ██ ██ ██ ▄█▀██    ██    ██ ██ ██ ██
+██ ██ ▀█▄██ ██ ██ ██ ▀█▄██ ██ ▀████ ████▀ ████▀
+                                    ██    ██
+                                    ▀▀    ▀▀
+
+build      : b12136-6447906bf
+model      : models/Ternary-Bonsai-1.7B-PQ2_0.gguf
+ftype      : PQ2_0 - 2.13 bpw (group 128)
+modalities : text
+
+available commands:
+  /exit or Ctrl+C     stop or exit
+  /regen              regenerate the last response
+  /clear              clear the chat history
+  /read <file>        add a text file
+  /glob <pattern>     add text files using globbing pattern
+
+
+
+> 请用一句话解释 DNS 的作用。
+DNS（域名名系统）将用户输入的域名（如 www.example.com）转换为对应的 IP 地址，以便计算机在网络上找到和访问资源。
+
+[ Prompt: 143.8 t/s | Generation: 50.7 t/s ]
+
+
+Exiting...
++ set +x
+
+model_exit_status=0

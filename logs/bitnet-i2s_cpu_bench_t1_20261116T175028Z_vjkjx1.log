@@ -1,0 +1,28 @@
+test=cpu_benchmark_v1
++ date -u +%FT%TZ
+2026-11-16T17:50:28Z
++ hostname
+vm209
++ git -C engines/BitNet rev-parse HEAD
+0b341e582afbf9e1011f24744b554c96a3477eb5
++ git -C engines/BitNet/3rdparty/llama.cpp rev-parse HEAD
+390c307752ab78fd8189f359d6954c9ba1be74af
++ sha256sum engines/BitNet/build-cpu/bin/llama-bench models/BitNet-b1.58-2B-4T/ggml-model-i2_s.gguf
+71259f8b1af11d4f3753104f03f2f12c027cc656c0b61c0041de8fc0dd2d406d  engines/BitNet/build-cpu/bin/llama-bench
+4221b252fdd5fd25e15847adfeb5ee88886506ba50b8a34548374492884c2162  models/BitNet-b1.58-2B-4T/ggml-model-i2_s.gguf
++ env
++ LC_ALL=C
++ sort
++ grep -E '^(OMP_|KMP_|GOMP_)'
++ true
++ run_status=0
++ ./engines/BitNet/build-cpu/bin/llama-bench -m models/BitNet-b1.58-2B-4T/ggml-model-i2_s.gguf -ngl 0 -t 1 -p 128 -n 128 -r 3 -b 2048 -ub 512 -ctk f16 -ctv f16 -fa auto -o json -oe md
+| model                          |       size |     params | backend    | threads |            test |                  t/s |
+| ------------------------------ | ---------: | ---------: | ---------- | ------: | --------------: | -------------------: |
+| bitnet-b1.58 2B Q1_0           |   1.10 GiB |     2.41 B | CPU        |       1 |           pp128 |         85.33 ± 0.03 |
+| bitnet-b1.58 2B Q1_0           |   1.10 GiB |     2.41 B | CPU        |       1 |           tg128 |          9.89 ± 0.02 |
+
+build: 390c30775 (9918)
++ set +x
+
+benchmark_exit_status=0
