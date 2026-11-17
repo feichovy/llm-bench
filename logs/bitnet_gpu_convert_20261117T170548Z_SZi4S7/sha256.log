@@ -1,0 +1,4 @@
++ sha256sum /home/user/projects/llm-inference-bench/models/BitNet-b1.58-2B-4T-gpu/model_state.pt /home/user/projects/llm-inference-bench/models/BitNet-b1.58-2B-4T-gpu/model_state_fp16.pt /home/user/projects/llm-inference-bench/models/BitNet-b1.58-2B-4T-gpu/model_state_int2.pt
+ca1fb72050cc8e60cded6b346e2ef00d0d35ce854f2455998223367d192eb723  /home/user/projects/llm-inference-bench/models/BitNet-b1.58-2B-4T-gpu/model_state.pt
+00d839fb76e8368e02fcf904c544d2b624ff6eb909253dac2aee4828cbc53b51  /home/user/projects/llm-inference-bench/models/BitNet-b1.58-2B-4T-gpu/model_state_fp16.pt
+ab24fb6cc92573fb97be1e6af66badc5b864974ebc20e9e89facb9545edf2ca9  /home/user/projects/llm-inference-bench/models/BitNet-b1.58-2B-4T-gpu/model_state_int2.pt

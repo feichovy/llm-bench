@@ -1,0 +1,72 @@
++ date -u +%FT%TZ
+2026-11-16T23:59:06Z
++ hostname
+vm209
++ uname -r
+6.8.0-138-generic
++ lspci -nnk -d 10de:
+01:00.0 VGA compatible controller [0300]: NVIDIA Corporation Device [10de:26b9] (rev a1)
+	Subsystem: NVIDIA Corporation Device [10de:1892]
+	Kernel driver in use: nvidia
+	Kernel modules: nvidiafb, nouveau
++ cat /proc/driver/nvidia/version
+NVRM version: NVIDIA UNIX Open Kernel Module for x86_64  580.105.08  Release Build  (dvs-builder@U22-I3-B10-02-5)  Wed Oct 29 22:29:53 UTC 2025
+GCC version:  gcc version 12.3.0 (Ubuntu 12.3.0-1ubuntu1~22.04.3) 
++ ls -l /dev/nvidia0 /dev/nvidia-caps /dev/nvidiactl /dev/nvidia-modeset /dev/nvidia-uvm /dev/nvidia-uvm-tools
+crw-rw-rw- 1 root root 195,   0 Nov 10 17:06 /dev/nvidia0
+crw-rw-rw- 1 root root 195, 255 Nov 10 17:06 /dev/nvidiactl
+crw-rw-rw- 1 root root 195, 254 Nov 10 17:06 /dev/nvidia-modeset
+crw-rw-rw- 1 root root 510,   0 Nov 10 17:07 /dev/nvidia-uvm
+crw-rw-rw- 1 root root 510,   1 Nov 10 17:07 /dev/nvidia-uvm-tools
+
+/dev/nvidia-caps:
+total 0
+cr-------- 1 root root 235, 1 Nov 10 17:07 nvidia-cap1
+cr--r--r-- 1 root root 235, 2 Nov 10 17:07 nvidia-cap2
++ command -v nvidia-smi
++ printf 'nvidia-smi: not found in PATH\n'
+nvidia-smi: not found in PATH
++ command -v nvcc
+/usr/bin/nvcc
++ nvcc --version
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2021 NVIDIA Corporation
+Built on Thu_Nov_18_09:45:30_PST_2021
+Cuda compilation tools, release 11.5, V11.5.119
+Build cuda_11.5.r11.5/compiler.30672275_0
++ ls -ld '/usr/local/cuda*'
+ls: cannot access '/usr/local/cuda*': No such file or directory
++ printf 'PATH=%s\n' /home/user/projects/llm-inference-bench/engines/BitNet/.venv/bin:/usr/lib/llvm-18/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+PATH=/home/user/projects/llm-inference-bench/engines/BitNet/.venv/bin:/usr/lib/llvm-18/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
++ /sbin/ldconfig -p
++ grep -E 'libcuda\.so|libcudart\.so|libnvidia-ml\.so'
+	libnvidia-ml.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libnvidia-ml.so.1
+	libnvidia-ml.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libnvidia-ml.so
+	libcudart.so.11.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcudart.so.11.0
+	libcudart.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libcudart.so
+	libcuda.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcuda.so.1
+	libcuda.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libcuda.so
++ dpkg-query -W '-f=${binary:Package}\t${Version}\t${db:Status-Abbrev}\n'
++ grep -E '^(cuda-|nvidia-|libnvidia-|libcuda|libcudart|libcublas)'
+libcublas11:amd64	11.7.4.6~11.5.1-1ubuntu1	ii 
+libcublaslt11:amd64	11.7.4.6~11.5.1-1ubuntu1	ii 
+libcudart11.0:amd64	11.5.117~11.5.1-1ubuntu1	ii 
+libnvidia-compute-615-server:amd64	615.71.09-0ubuntu0.22.04.1	ii 
+libnvidia-ml-dev:amd64	11.5.50~11.5.1-1ubuntu1	ii 
+nvidia-cuda-dev:amd64	11.5.1-1ubuntu1	ii 
+nvidia-cuda-gdb	11.5.114~11.5.1-1ubuntu1	ii 
+nvidia-cuda-toolkit	11.5.1-1ubuntu1	ii 
+nvidia-cuda-toolkit-doc	11.5.1-1ubuntu1	ii 
+nvidia-firmware-615-server-615.71.09	615.71.09-0ubuntu0.22.04.1	ii 
+nvidia-kernel-common-615-server	615.71.09-0ubuntu0.22.04.1	ii 
+nvidia-linux-grid-580	580.105.08	rc 
+nvidia-opencl-dev:amd64	11.5.1-1ubuntu1	ii 
+nvidia-profiler	11.5.114~11.5.1-1ubuntu1	ii 
+nvidia-visual-profiler	11.5.114~11.5.1-1ubuntu1	ii 
++ g++ --version
++ head -n 1
+g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
++ cmake --version
++ head -n 1
+cmake version 3.22.1
++ set +x

@@ -1,0 +1,17 @@
++ /home/user/projects/llm-inference-bench/engines/BitNet/.venv-gpu/bin/python /home/user/projects/llm-inference-bench/logs/bitnet_gpu_deps_20261117T164421Z_qX3Amx/gpu-check.py
+PyTorch: 2.9.1+cu130
+PyTorch CUDA: 13.0
+xFormers: 0.0.33.post2
+GPU: NVIDIA L40S-16Q
+Compute capability: (8, 9)
+PASS: PyTorch CUDA matrix multiplication.
+PASS: xFormers BF16 Flash Attention.
+PASS: xFormers CUDA RMSNorm execution.
+{
+  "status": "PASS",
+  "torch": "2.9.1+cu130",
+  "torch_cuda": "13.0",
+  "xformers": "0.0.33.post2",
+  "gpu": "NVIDIA L40S-16Q",
+  "attention_max_abs_error": 0.004132747650146484
+}

@@ -26,3 +26,20 @@ venv/
 __pycache__/
 *.py[cod]
 .DS_Store
+
+# Additional exclusions for CUDA experiments
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.cubin
+*.fatbin
+*.ptx
+*.whl
+.venv*/
+venv*/
+.cache/
+.env
+.env.*
+*.pem
+*.key

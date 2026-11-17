@@ -1,0 +1,70 @@
+{
+  "command": "check",
+  "repo": "/home/user/projects/llm-inference-bench/engines/BitNet",
+  "required_commit": "0b341e582afbf9e1011f24744b554c96a3477eb5",
+  "started_utc": "20261117T172101350697Z",
+  "artifacts": "/home/user/projects/llm-inference-bench/logs/bitnet_gpu_all_20261117T172037Z_LyvmMN/bitnet-check-20261117T172101350697Z-218fb89c",
+  "status": "PASS",
+  "source_states": {
+    "gpu/model.py": "already_patched",
+    "gpu/bitnet_kernels/bitnet_kernels.h": "already_patched"
+  },
+  "supporting_sources": [
+    {
+      "path": "gpu/pack_weight.py",
+      "sha256": "8657d2f396721ceafd77615752d353fc3ff10097a9b2331863a4657294503e10"
+    },
+    {
+      "path": "gpu/bitnet_kernels/bitnet_kernels.cu",
+      "sha256": "d6f0f727e5ad243a34084c887812dacf0bc7e51fcf92b17b9e70b804026fa6f5"
+    },
+    {
+      "path": "gpu/bitnet_kernels/compile.sh",
+      "sha256": "b09cdb87ed313eb23d40d0bf75cce1d452e7eebae000257e26276025a1469c43"
+    }
+  ],
+  "source_sha256": {
+    "gpu/model.py": "725070f94eb629d63b1eb943aacca77946be590edf4880e39419cb31892f7399",
+    "gpu/bitnet_kernels/bitnet_kernels.h": "89eeb39cd3123b322d1854dac3b837160bc13d2169e325920e1ec50f67c15780"
+  },
+  "library_sha256": "22d5850489daab98fb3184307e5ca8f4798ce259c99f93543466256105674559",
+  "torch_version": "2.9.1+cu130",
+  "torch_cuda_version": "13.0",
+  "device": "NVIDIA L40S-16Q",
+  "compute_capability": [
+    8,
+    9
+  ],
+  "normalization": {
+    "expected_eps": 1e-05,
+    "observed_eps": {
+      "attention.attn_sub_norm": 1e-05,
+      "feed_forward.ffn_sub_norm": 1e-05
+    },
+    "passed": true
+  },
+  "qkv_kernel": {
+    "shape_m_n_k": [
+      1,
+      3840,
+      2560
+    ],
+    "input_scale": 4.0,
+    "qkv_scales": [
+      0.5,
+      2.0,
+      8.0
+    ],
+    "qkv_row_counts": [
+      2560,
+      640,
+      640
+    ],
+    "reference": "CPU int32 dot product, FP32 scaling, then BF16 rounding",
+    "comparison": "exact BF16 equality; scale factors are powers of two",
+    "old_scale_formula_mismatching_rows": 1919,
+    "mismatching_rows": 0,
+    "passed": true,
+    "first_mismatches": []
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "command": "patch",
+  "repo": "/home/user/projects/llm-inference-bench/engines/BitNet",
+  "required_commit": "0b341e582afbf9e1011f24744b554c96a3477eb5",
+  "started_utc": "20261117T172057879990Z",
+  "artifacts": "/home/user/projects/llm-inference-bench/logs/bitnet_gpu_all_20261117T172037Z_LyvmMN/bitnet-patch-20261117T172057879990Z-10db98ad",
+  "status": "PASS",
+  "supporting_sources": [
+    {
+      "path": "gpu/pack_weight.py",
+      "sha256": "8657d2f396721ceafd77615752d353fc3ff10097a9b2331863a4657294503e10"
+    },
+    {
+      "path": "gpu/bitnet_kernels/bitnet_kernels.cu",
+      "sha256": "d6f0f727e5ad243a34084c887812dacf0bc7e51fcf92b17b9e70b804026fa6f5"
+    },
+    {
+      "path": "gpu/bitnet_kernels/compile.sh",
+      "sha256": "b09cdb87ed313eb23d40d0bf75cce1d452e7eebae000257e26276025a1469c43"
+    }
+  ],
+  "files": [
+    {
+      "path": "gpu/model.py",
+      "state": "original",
+      "before_sha256": "20cda0520721c6aca58137429715ef84781172bae93f03ab23b0c043b68476d2",
+      "after_sha256": "725070f94eb629d63b1eb943aacca77946be590edf4880e39419cb31892f7399",
+      "pinned_blob_sha256": "20cda0520721c6aca58137429715ef84781172bae93f03ab23b0c043b68476d2",
+      "action": "patched"
+    },
+    {
+      "path": "gpu/bitnet_kernels/bitnet_kernels.h",
+      "state": "original",
+      "before_sha256": "e23d654bb3e344ff3d8f81864420d505264dcd872d5cbee6a56d3fe4e894a8e9",
+      "after_sha256": "89eeb39cd3123b322d1854dac3b837160bc13d2169e325920e1ec50f67c15780",
+      "pinned_blob_sha256": "e23d654bb3e344ff3d8f81864420d505264dcd872d5cbee6a56d3fe4e894a8e9",
+      "action": "patched"
+    }
+  ]
+}

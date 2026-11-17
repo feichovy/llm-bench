@@ -1,0 +1,6 @@
+version: 0.9.0-dev (build 12192, commit 9f0e5098a)
+built with GNU 11.4.0 for Linux x86_64
+Available devices:
+  CUDA0: NVIDIA L40S-16Q (16150 MiB, 14007 MiB free)
+56537281134c55df4f12fe4a3955b9bcd4562a2dbf1c3ab7f58f9d7c0e69e6aa  build-cuda/bin/llama-cli
+b243e50658d9c50e5e408b571698187829c92e87ff9e1d1970d3f0afab48cba3  build-cuda/bin/llama-bench

@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "method_id": "bitnet_gpu_cuda_graph_last_logits_empty_decode_v1",
+  "batch_size": 1,
+  "prompt_tokens": 128,
+  "decode_steps": 128,
+  "decode_initial_context_tokens": 0,
+  "decode_kv_lengths": [
+    1,
+    128
+  ],
+  "kv_capacity_tokens": 128,
+  "kv_dtype": "bfloat16",
+  "attention_operator": "xformers.ops.fmha.flash.FwOp",
+  "execution": "Separate captured prefill and single-step decode CUDA graphs",
+  "prefill": {
+    "label": "prefill128_last_logits",
+    "weights": "Expanded BF16 ternary weights; activation quantize/dequantize",
+    "computation": "All transformer blocks on every input token; final RMSNorm and vocabulary head only on the last position",
+    "timed": "One CUDA-graph replay followed by device synchronization"
+  },
+  "decode": {
+    "label": "decode128_from_empty",
+    "weights": "Custom packed W2A8 BitNet GEMV kernels; BF16 embedding/norm/head",
+    "computation": "Exactly one model forward per fixed input token; no sampling or EOS handling",
+    "timed": "Python loop, GPU-to-GPU input-token copies, GPU KV-length fills, CUDA-graph replays and device synchronization after every token"
+  },
+  "timer": "time.perf_counter_ns; torch.cuda.synchronize immediately before each timed interval, after prefill, and after every decode token",
+  "untimed": [
+    "checkpoint hashing and loading",
+    "torch.compile and CUDA-graph capture",
+    "all warmup passes",
+    "initial CPU-to-GPU token transfer",
+    "KV-cache clearing and initial input setup before every sample",
+    "finite-output checks and JSON/log writes"
+  ],
+  "graph_capture_warmup_forwards_per_shape": 3,
+  "untimed_graph_validation_replays_per_shape": 1,
+  "complete_warmup_passes_per_phase": 3,
+  "repetitions_per_phase": 3,
+  "input": "Seeded CPU torch.Generator produces fixed ordinary token IDs in [0,128000); tensors transferred to GPU before timing",
+  "seed": 42,
+  "sampling": false,
+  "stop_at_eos": false,
+  "comparison_limits": [
+    "This is a separate BitNet GPU runner, not llama-bench output or a claim of identical execution paths.",
+    "KV cache is BF16; the earlier llama-bench runs requested F16 KV.",
+    "CPU thread count controls host PyTorch work, not the number of CUDA threads.",
+    "Decode begins with an empty KV cache and processes fixed inputs; it is not a 128-token-prompt response benchmark.",
+    "Prefill uses BF16 matrix multiplication, while decode uses the custom W2A8 GEMV kernel.",
+    "The llama.cpp Qwen3 graph may omit the final-layer FFN for prompt positions whose logits are not requested. This wrapper still runs all 30 transformer layers at every prompt position; last-position-only logits do not make the workloads identical."
+  ]
+}

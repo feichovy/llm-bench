@@ -1,0 +1,1 @@
++ test -s /home/user/projects/llm-inference-bench/engines/BitNet/gpu/bitnet_kernels/libbitnet.so

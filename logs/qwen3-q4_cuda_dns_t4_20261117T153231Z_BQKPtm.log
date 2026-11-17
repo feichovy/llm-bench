@@ -1,0 +1,84 @@
+test=cuda_dns_check_v1
++ date -u +%FT%TZ
+2026-11-17T15:32:31Z
++ hostname
+vm209
++ uname -r
+6.8.0-138-generic
++ git -C engines/llama.cpp rev-parse HEAD
+9f0e5098a5d5d8adb8dd5c59036ae2a38ab07db9
++ ./engines/llama.cpp/build-cuda/bin/llama-cli --version
+version: 0.9.0-dev (build 12192, commit 9f0e5098a)
+built with GNU 11.4.0 for Linux x86_64
++ nvidia-smi
+Tue Nov 17 15:32:31 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.105.08             Driver Version: 580.105.08     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S-16Q                On  |   00000000:01:00.0 Off |                    0 |
+| N/A   N/A    P0            N/A  /  N/A  |      52MiB /  16384MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A             958      G   /usr/lib/xorg/Xorg                       51MiB |
++-----------------------------------------------------------------------------------------+
++ sha256sum engines/llama.cpp/build-cuda/bin/llama-cli models/Qwen3-1.7B-Q4_K_M.gguf
+56537281134c55df4f12fe4a3955b9bcd4562a2dbf1c3ab7f58f9d7c0e69e6aa  engines/llama.cpp/build-cuda/bin/llama-cli
+d2387ca2dbfee2ffabce7120d3770dadca0b293052bc2f0e138fdc940d9bc7b5  models/Qwen3-1.7B-Q4_K_M.gguf
++ run_status=0
++ ./engines/llama.cpp/build-cuda/bin/llama-cli -m models/Qwen3-1.7B-Q4_K_M.gguf --device CUDA0 -ngl all -t 4 -tb 4 -c 2048 -n 512 --seed 42 -p '请用一句话解释 DNS 的作用。' --single-turn --simple-io --color off --show-timings
+
+
+Loading model... 
+
+▄▄ ▄▄
+██ ██
+██ ██  ▀▀█▄ ███▄███▄  ▀▀█▄    ▄████ ████▄ ████▄
+██ ██ ▄█▀██ ██ ██ ██ ▄█▀██    ██    ██ ██ ██ ██
+██ ██ ▀█▄██ ██ ██ ██ ▀█▄██ ██ ▀████ ████▀ ████▀
+                                    ██    ██
+                                    ▀▀    ▀▀
+
+build      : b12192-9f0e5098a
+model      : models/Qwen3-1.7B-Q4_K_M.gguf
+ftype      : Q4_K - Medium
+modalities : text
+
+available commands:
+  /exit or Ctrl+C     stop or exit
+  /regen              regenerate the last response
+  /clear              clear the chat history
+  /read <file>        add a text file
+  /glob <pattern>     add text files using globbing pattern
+
+
+
+> 请用一句话解释 DNS 的作用。
+
+[Start thinking]
+
+嗯，用户让我用一句话解释DNS的作用。首先，我需要确定DNS的基本功能。DNS是域名系统，主要将人类容易记的域名转换成IP地址，让计算机能识别。不过得用一句话，所以得简洁。
+
+可能用户是学生，或者刚开始学网络知识，需要基础的定义。要确保准确，同时避免复杂术语。比如，不能说“将域名转换为IP地址”，因为IP地址是计算机使用的，而域名是人类易记的。所以正确的说法是“将域名转换为IP地址，以便计算机通信”。
+
+还要注意语法是否通顺，比如“DNS的作用是将域名转换为IP地址，以便计算机进行通信。”这样既简洁又准确。有没有其他可能的表达方式？比如“DNS的作用是将域名解析为IP地址，使网络通信顺利进行。”但可能稍微长了一点。用户可能需要最直接的解释，所以保持简洁。
+[End thinking]
+
+DNS的作用是将域名解析为对应的IP地址，使计算机能够通过网络识别和通信。
+
+[ Prompt: 739.4 t/s | Generation: 363.9 t/s ]
+
+
+Exiting...
++ set +x
+
+model_exit_status=0

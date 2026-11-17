@@ -1,0 +1,20 @@
++ /home/user/projects/llm-inference-bench/engines/BitNet/.venv-gpu/bin/python -u /home/user/projects/llm-inference-bench/scripts/bitnet_gpu_bench.py --bitnet-root /home/user/projects/llm-inference-bench/engines/BitNet --checkpoint-dir /home/user/projects/llm-inference-bench/models/BitNet-b1.58-2B-4T-gpu --threads 4 --repetitions 3 --prompt-tokens 128 --decode-tokens 128 --warmup 3 --seed 42 --output-json /home/user/projects/llm-inference-bench/results/bitnet_w2a8_cuda_t4_bitnet_gpu_all_20261117T172037Z_LyvmMN.json --method-json /home/user/projects/llm-inference-bench/logs/bitnet_gpu_all_20261117T172037Z_LyvmMN/method-t4.json
+[2026-11-17T17:21:37.417820+00:00] Hashing benchmark_script
+[2026-11-17T17:21:37.417958+00:00] Hashing model_source
+[2026-11-17T17:21:37.418013+00:00] Hashing kernel_source
+[2026-11-17T17:21:37.418037+00:00] Hashing kernel_header
+[2026-11-17T17:21:37.418062+00:00] Hashing kernel_library
+[2026-11-17T17:21:37.419518+00:00] Hashing expanded_checkpoint
+[2026-11-17T17:21:40.713056+00:00] Hashing packed_checkpoint
+[2026-11-17T17:21:44.789962+00:00] Loading expanded BF16 prefill model
+[2026-11-17T17:21:45.656044+00:00] Loading packed W2A8 decode model
+[2026-11-17T17:21:45.973947+00:00] Checking last-position prefill wrapper against upstream full-head forward
+[2026-11-17T17:21:46.900570+00:00] Prefill wrapper numerical check passed; max abs error=0.015625
+[2026-11-17T17:21:47.067226+00:00] Captured prefill graph
+[2026-11-17T17:21:47.428267+00:00] Captured decode graph
+[2026-11-17T17:21:47.428317+00:00] Running 3 untimed complete warmup passes per phase
+[2026-11-17T17:21:48.515861+00:00] Measuring 3 prefill repetitions
+[2026-11-17T17:21:48.546285+00:00] Measuring 3 decode repetitions
+[2026-11-17T17:21:49.600977+00:00] PASS prefill128_last_logits: 13150.048 +/- 5.263 tokens/s
+[2026-11-17T17:21:49.600992+00:00] PASS decode128_from_empty: 365.082 +/- 0.288 tokens/s
+[2026-11-17T17:21:49.600999+00:00] Results saved to /home/user/projects/llm-inference-bench/results/bitnet_w2a8_cuda_t4_bitnet_gpu_all_20261117T172037Z_LyvmMN.json

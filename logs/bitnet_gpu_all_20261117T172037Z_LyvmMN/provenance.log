@@ -1,0 +1,13 @@
+2026-11-17T17:20:37Z
+vm209
+6.8.0-138-generic
+0b341e582afbf9e1011f24744b554c96a3477eb5
+g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+e7cdd887d1b38b028f66981f3de246a1b471ea9b05dea444cb97253ae2a2a7a0  /home/user/projects/llm-inference-bench/scripts/bitnet_gpu_prepare_test.py
+9649f30f5f44f35f551c134a3e28deb53b597f67c0db0ed22585b19caffc124a  /home/user/projects/llm-inference-bench/scripts/bitnet_gpu_bench.py
+00d839fb76e8368e02fcf904c544d2b624ff6eb909253dac2aee4828cbc53b51  /home/user/projects/llm-inference-bench/models/BitNet-b1.58-2B-4T-gpu/model_state_fp16.pt
+ab24fb6cc92573fb97be1e6af66badc5b864974ebc20e9e89facb9545edf2ca9  /home/user/projects/llm-inference-bench/models/BitNet-b1.58-2B-4T-gpu/model_state_int2.pt

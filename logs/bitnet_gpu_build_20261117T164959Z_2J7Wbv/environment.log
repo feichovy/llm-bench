@@ -1,0 +1,40 @@
+2026-11-17T16:49:59Z
+vm209
+6.8.0-138-generic
+Python 3.10.12
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2025 NVIDIA Corporation
+Built on Wed_Aug_20_01:58:59_PM_PDT_2025
+Cuda compilation tools, release 13.0, V13.0.88
+Build cuda_13.0.r13.0/compiler.36424714_0
+g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+Tue Nov 17 16:49:59 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.105.08             Driver Version: 580.105.08     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S-16Q                On  |   00000000:01:00.0 Off |                    0 |
+| N/A   N/A    P0            N/A  /  N/A  |      52MiB /  16384MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A             958      G   /usr/lib/xorg/Xorg                       51MiB |
++-----------------------------------------------------------------------------------------+
+0b341e582afbf9e1011f24744b554c96a3477eb5
+b09cdb87ed313eb23d40d0bf75cce1d452e7eebae000257e26276025a1469c43  /home/user/projects/llm-inference-bench/engines/BitNet/gpu/bitnet_kernels/compile.sh
+d6f0f727e5ad243a34084c887812dacf0bc7e51fcf92b17b9e70b804026fa6f5  /home/user/projects/llm-inference-bench/engines/BitNet/gpu/bitnet_kernels/bitnet_kernels.cu
+e23d654bb3e344ff3d8f81864420d505264dcd872d5cbee6a56d3fe4e894a8e9  /home/user/projects/llm-inference-bench/engines/BitNet/gpu/bitnet_kernels/bitnet_kernels.h
+140696a6c9c87e718f09cef8391dd92990bb37e555920bf991e2829a1f449fb7  /home/user/projects/llm-inference-bench/engines/BitNet/gpu/test.py
+8657d2f396721ceafd77615752d353fc3ff10097a9b2331863a4657294503e10  /home/user/projects/llm-inference-bench/engines/BitNet/gpu/pack_weight.py

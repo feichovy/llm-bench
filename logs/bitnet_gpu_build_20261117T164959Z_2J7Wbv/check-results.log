@@ -1,0 +1,2 @@
++ /home/user/projects/llm-inference-bench/engines/BitNet/.venv-gpu/bin/python - /home/user/projects/llm-inference-bench/logs/bitnet_gpu_build_20261117T164959Z_2J7Wbv/kernel-test.log
+PASS: all 8 BitNet CUDA kernel comparisons matched NumPy.

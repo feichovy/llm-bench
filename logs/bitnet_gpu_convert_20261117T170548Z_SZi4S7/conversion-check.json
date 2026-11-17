@@ -1,0 +1,27 @@
+{
+  "model_state.pt": {
+    "tensor_count": 243,
+    "dtype_counts": {
+      "torch.bfloat16": 243
+    },
+    "size_bytes": 4825717543,
+    "structure_check": "PASS"
+  },
+  "model_state_fp16.pt": {
+    "tensor_count": 243,
+    "dtype_counts": {
+      "torch.bfloat16": 243
+    },
+    "size_bytes": 5482389778,
+    "structure_check": "PASS"
+  },
+  "model_state_int2.pt": {
+    "tensor_count": 363,
+    "dtype_counts": {
+      "torch.int8": 120,
+      "torch.bfloat16": 243
+    },
+    "size_bytes": 1835349474,
+    "structure_check": "PASS"
+  }
+}

@@ -1,0 +1,2 @@
++ env -u NVCC_PREPEND_FLAGS -u NVCC_APPEND_FLAGS PATH=/usr/local/cuda-13.0/bin:/usr/local/cuda-13.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin NVCC_CCBIN=/usr/bin/g++ bash -eux ./compile.sh
++ nvcc -std=c++17 -Xcudafe --diag_suppress=177 --compiler-options -fPIC -lineinfo --shared bitnet_kernels.cu -lcuda -gencode=arch=compute_80,code=compute_80 -o libbitnet.so

@@ -1,0 +1,4 @@
++ /home/user/projects/llm-inference-bench/engines/BitNet/.venv-gpu/bin/python -u /home/user/projects/llm-inference-bench/logs/bitnet_gpu_convert_20261117T170548Z_SZi4S7/verify.py /home/user/projects/llm-inference-bench/models/BitNet-b1.58-2B-4T-gpu /home/user/projects/llm-inference-bench/logs/bitnet_gpu_convert_20261117T170548Z_SZi4S7
+PASS: model_state.pt: 243 tensors; shapes and dtypes verified.
+PASS: model_state_fp16.pt: 243 tensors; shapes and dtypes verified.
+PASS: model_state_int2.pt: 363 tensors; shapes and dtypes verified.

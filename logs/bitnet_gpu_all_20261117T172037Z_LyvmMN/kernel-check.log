@@ -1,0 +1,2 @@
++ env OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 /home/user/projects/llm-inference-bench/engines/BitNet/.venv-gpu/bin/python -u /home/user/projects/llm-inference-bench/scripts/bitnet_gpu_prepare_test.py check --repo /home/user/projects/llm-inference-bench/engines/BitNet --log-dir /home/user/projects/llm-inference-bench/logs/bitnet_gpu_all_20261117T172037Z_LyvmMN
+CHECK PASS: /home/user/projects/llm-inference-bench/logs/bitnet_gpu_all_20261117T172037Z_LyvmMN/bitnet-check-20261117T172101350697Z-218fb89c/report.json

@@ -1,0 +1,17 @@
++ /home/user/projects/llm-inference-bench/engines/BitNet/.venv-gpu/bin/python -u test.py
+custom == np True
+Shape(2560, 2560), W2A8: 10.23us, torch BF16: 9.33us
+custom == np True
+Shape(3840, 2560), W2A8: 9.59us, torch BF16: 12.05us
+custom == np True
+Shape(13824, 2560), W2A8: 9.45us, torch BF16: 45.96us
+custom == np True
+Shape(2560, 6912), W2A8: 9.44us, torch BF16: 14.47us
+custom == np True
+Shape(3200, 3200), W2A8: 9.39us, torch BF16: 11.77us
+custom == np True
+Shape(4800, 3200), W2A8: 9.60us, torch BF16: 16.20us
+custom == np True
+Shape(3200, 10240), W2A8: 9.42us, torch BF16: 22.20us
+custom == np True
+Shape(20480, 3200), W2A8: 10.96us, torch BF16: 131.20us

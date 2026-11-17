@@ -1,0 +1,14 @@
+2026-11-17T17:05:48Z
+vm209
+Python 3.10.12
+0b341e582afbf9e1011f24744b554c96a3477eb5
+OMP_NUM_THREADS=4
+MKL_NUM_THREADS=4
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda2       125G   45G   74G  38% /
+529637ff6dab1f5890767356928693f69ffe61d3b6040a43de9306b37bfd5ae1  /home/user/projects/llm-inference-bench/models/BitNet-b1.58-2B-4T-bf16/model.safetensors
+6eda113b174b73263bf6303d79e4e00c8a8133387b36137ed84ae0cc03647de8  /home/user/projects/llm-inference-bench/engines/BitNet/gpu/convert_safetensors.py
+56362af3f71397847a81882547455a8e6e7947d453ef14e084c73597967d0900  /home/user/projects/llm-inference-bench/engines/BitNet/gpu/convert_checkpoint.py
+8657d2f396721ceafd77615752d353fc3ff10097a9b2331863a4657294503e10  /home/user/projects/llm-inference-bench/engines/BitNet/gpu/pack_weight.py
+20cda0520721c6aca58137429715ef84781172bae93f03ab23b0c043b68476d2  /home/user/projects/llm-inference-bench/engines/BitNet/gpu/model.py
+562cb4959396739dd27cde86d9750e4e4f1edefd11a3906234b60cc7f319e0e0  /home/user/projects/llm-inference-bench/engines/BitNet/gpu/bitnet_kernels/libbitnet.so

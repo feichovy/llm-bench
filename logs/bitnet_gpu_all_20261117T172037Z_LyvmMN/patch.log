@@ -1,0 +1,2 @@
++ /home/user/projects/llm-inference-bench/engines/BitNet/.venv-gpu/bin/python -u /home/user/projects/llm-inference-bench/scripts/bitnet_gpu_prepare_test.py patch --repo /home/user/projects/llm-inference-bench/engines/BitNet --log-dir /home/user/projects/llm-inference-bench/logs/bitnet_gpu_all_20261117T172037Z_LyvmMN
+PATCH PASS: /home/user/projects/llm-inference-bench/logs/bitnet_gpu_all_20261117T172037Z_LyvmMN/bitnet-patch-20261117T172057879990Z-10db98ad/report.json

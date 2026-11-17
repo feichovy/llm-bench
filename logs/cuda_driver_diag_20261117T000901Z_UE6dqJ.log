@@ -1,0 +1,50 @@
++ date -u +%FT%TZ
+2026-11-17T00:09:01Z
++ id
+uid=1001(user) gid=1001(user) groups=1001(user),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),122(lpadmin),135(lxd),136(sambashare)
++ cat /proc/driver/nvidia/version
+NVRM version: NVIDIA UNIX Open Kernel Module for x86_64  580.105.08  Release Build  (dvs-builder@U22-I3-B10-02-5)  Wed Oct 29 22:29:53 UTC 2025
+GCC version:  gcc version 12.3.0 (Ubuntu 12.3.0-1ubuntu1~22.04.3) 
++ python3 -u
+LD_LIBRARY_PATH=<unset>
+LD_PRELOAD=<unset>
+CUDA_VISIBLE_DEVICES=<unset>
+NVIDIA_VISIBLE_DEVICES=<unset>
+Loaded CUDA driver library: /usr/lib/x86_64-linux-gnu/libcuda.so.615.71.09
+cuInit return code: 999
++ ls -l /dev/nvidia0 /dev/nvidia-caps /dev/nvidiactl /dev/nvidia-modeset /dev/nvidia-uvm /dev/nvidia-uvm-tools
+crw-rw-rw- 1 root root 195,   0 Nov 10 17:06 /dev/nvidia0
+crw-rw-rw- 1 root root 195, 255 Nov 10 17:06 /dev/nvidiactl
+crw-rw-rw- 1 root root 195, 254 Nov 10 17:06 /dev/nvidia-modeset
+crw-rw-rw- 1 root root 510,   0 Nov 10 17:07 /dev/nvidia-uvm
+crw-rw-rw- 1 root root 510,   1 Nov 10 17:07 /dev/nvidia-uvm-tools
+
+/dev/nvidia-caps:
+total 0
+cr-------- 1 root root 235, 1 Nov 10 17:07 nvidia-cap1
+cr--r--r-- 1 root root 235, 2 Nov 10 17:07 nvidia-cap2
++ lsmod
++ grep '^nvidia'
+nvidia_drm            139264  2
+nvidia_modeset       1814528  2 nvidia_drm
+nvidia              14385152  27 nvidia_modeset
++ dpkg-query -S '*/libcuda.so*'
+nvidia-cuda-dev:amd64: /usr/lib/x86_64-linux-gnu/stubs/libcuda.so
+libnvidia-compute-615-server:amd64: /usr/lib/x86_64-linux-gnu/libcuda.so.615.71.09
+libnvidia-compute-615-server:amd64: /usr/lib/x86_64-linux-gnu/libcuda.so.1
+libnvidia-compute-615-server:amd64: /usr/lib/x86_64-linux-gnu/libcuda.so
++ sudo dmesg --ctime
++ grep -Ei 'NVRM|nvidia|uvm|Xid|API mismatch'
++ tail -n 80
+[Tue Nov 10 17:06:10 2026] nvidia: loading out-of-tree module taints kernel.
+[Tue Nov 10 17:06:10 2026] nvidia: module verification failed: signature and/or required key missing - tainting kernel
+[Tue Nov 10 17:06:10 2026] nvidia-nvlink: Nvlink Core is being initialized, major device number 234
+[Tue Nov 10 17:06:10 2026] nvidia 0000:01:00.0: vgaarb: VGA decodes changed: olddecodes=io+mem,decodes=none:owns=none
+[Tue Nov 10 17:06:10 2026] NVRM: loading NVIDIA UNIX Open Kernel Module for x86_64  580.105.08  Release Build  (dvs-builder@U22-I3-B10-02-5)  Wed Oct 29 22:29:53 UTC 2025
+[Tue Nov 10 17:06:10 2026] nvidia-modeset: Loading NVIDIA UNIX Open Kernel Mode Setting Driver for x86_64  580.105.08  Release Build  (dvs-builder@U22-I3-B10-02-5)  Wed Oct 29 22:16:05 UTC 2025
+[Tue Nov 10 17:06:10 2026] [drm] [nvidia-drm] [GPU ID 0x00000100] Loading driver
+[Tue Nov 10 17:06:10 2026] [drm] Initialized nvidia-drm 0.0.0 20160202 for 0000:01:00.0 on minor 0
+[Tue Nov 10 17:06:11 2026] audit: type=1400 audit(1794330371.262:6): apparmor="STATUS" operation="profile_load" profile="unconfined" name="nvidia_modprobe" pid=561 comm="apparmor_parser"
+[Tue Nov 10 17:06:11 2026] audit: type=1400 audit(1794330371.262:7): apparmor="STATUS" operation="profile_load" profile="unconfined" name="nvidia_modprobe//kmod" pid=561 comm="apparmor_parser"
+[Tue Nov 10 17:11:44 2026] NVRM: serverControl_ValidateCookie: Unsupported ROUTE_TO_PHYSICAL control 0x20803404 was called on vGPU guest
++ set +x

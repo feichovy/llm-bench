@@ -1,0 +1,46 @@
++ /home/user/projects/llm-inference-bench/engines/BitNet/.venv-gpu/bin/python -m xformers.info
+xFormers 0.0.33.post2
+memory_efficient_attention.ckF:                    unavailable
+memory_efficient_attention.ckB:                    unavailable
+memory_efficient_attention.ck_splitKF:             unavailable
+memory_efficient_attention.cutlassF-pt:            available
+memory_efficient_attention.cutlassB-pt:            available
+memory_efficient_attention.cutlassF-blackwell:     unavailable
+memory_efficient_attention.cutlassB-blackwell:     unavailable
+memory_efficient_attention.fa2F@2.5.7-pt:          available
+memory_efficient_attention.fa2B@2.5.7-pt:          available
+memory_efficient_attention.fa3F@2.8.3-133-gde1584b: available
+memory_efficient_attention.fa3B@2.8.3-133-gde1584b: available
+memory_efficient_attention.fa3F_splitKV@2.8.3-133-gde1584b: available
+memory_efficient_attention.triton_splitKF:         available
+indexing.scaled_index_addF:                        available
+indexing.scaled_index_addB:                        available
+indexing.index_select:                             available
+sp24.sparse24_sparsify_both_ways:                  available
+sp24.sparse24_apply:                               available
+sp24.sparse24_apply_dense_output:                  available
+sp24._sparse24_gemm:                               available
+sp24._cslt_sparse_mm_search@0.8.0:                 available
+sp24._cslt_sparse_mm@0.8.0:                        available
+swiglu.dual_gemm_silu:                             available
+swiglu.gemm_fused_operand_sum:                     available
+swiglu.fused.p.cpp:                                available
+is_triton_available:                               True
+pytorch.version:                                   2.9.1+cu130
+pytorch.cuda:                                      available
+gpu.compute_capability:                            8.9
+gpu.name:                                          NVIDIA L40S-16Q
+dcgm_profiler:                                     unavailable
+build.info:                                        available
+build.cuda_version:                                1300
+build.hip_version:                                 None
+build.python_version:                              3.10.19
+build.torch_version:                               2.9.1+cu130
+build.env.TORCH_CUDA_ARCH_LIST:                    7.5 8.0+PTX 8.0 9.0a 10.0a 10.3a 11.0a 12.0a 12.1a
+build.env.PYTORCH_ROCM_ARCH:                       None
+build.env.XFORMERS_BUILD_TYPE:                     Release
+build.env.XFORMERS_ENABLE_DEBUG_ASSERTIONS:        None
+build.env.NVCC_FLAGS:                              -allow-unsupported-compiler
+build.env.XFORMERS_PACKAGE_FROM:                   wheel-v0.0.33.post2
+build.nvcc_version:                                13.0.88
+source.privacy:                                    open source
